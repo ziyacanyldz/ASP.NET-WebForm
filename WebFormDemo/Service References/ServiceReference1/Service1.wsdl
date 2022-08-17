@@ -1,0 +1,466 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="HelloWorld">
+        <s:complexType />
+      </s:element>
+      <s:element name="HelloWorldResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="HelloWorldResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Ekle">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="personel" type="tns:Personel" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Personel">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Ad" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Soyad" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Maas" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Sehir" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Meslek" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TelNo" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="EkleResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="EkleResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetirById">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetirByIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetirByIdResult" type="tns:Personel" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Guncelle">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="personel" type="tns:Personel" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GuncelleResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GuncelleResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Sil">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SilResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SilResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetirHepsi">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetirHepsiResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetirHepsiResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoginKontrol">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="kullanici" type="tns:Kullanici" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Kullanici">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="KullaniciAdi" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Sifre" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="LoginKontrolResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="LoginKontrolResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="YetkiliMi">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="kullanici" type="tns:Kullanici" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="YetkiliMiResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="YetkiliMiResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="sha256_hash">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="value" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="sha256_hashResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sha256_hashResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Ekle2">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="kullanici" type="tns:YeniKullanici" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="YeniKullanici">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="KullaniciAdi" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Sifre" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Yetki" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="Ekle2Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="Ekle2Result" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="HelloWorldSoapIn">
+    <wsdl:part name="parameters" element="tns:HelloWorld" />
+  </wsdl:message>
+  <wsdl:message name="HelloWorldSoapOut">
+    <wsdl:part name="parameters" element="tns:HelloWorldResponse" />
+  </wsdl:message>
+  <wsdl:message name="EkleSoapIn">
+    <wsdl:part name="parameters" element="tns:Ekle" />
+  </wsdl:message>
+  <wsdl:message name="EkleSoapOut">
+    <wsdl:part name="parameters" element="tns:EkleResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetirByIdSoapIn">
+    <wsdl:part name="parameters" element="tns:GetirById" />
+  </wsdl:message>
+  <wsdl:message name="GetirByIdSoapOut">
+    <wsdl:part name="parameters" element="tns:GetirByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="GuncelleSoapIn">
+    <wsdl:part name="parameters" element="tns:Guncelle" />
+  </wsdl:message>
+  <wsdl:message name="GuncelleSoapOut">
+    <wsdl:part name="parameters" element="tns:GuncelleResponse" />
+  </wsdl:message>
+  <wsdl:message name="SilSoapIn">
+    <wsdl:part name="parameters" element="tns:Sil" />
+  </wsdl:message>
+  <wsdl:message name="SilSoapOut">
+    <wsdl:part name="parameters" element="tns:SilResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetirHepsiSoapIn">
+    <wsdl:part name="parameters" element="tns:GetirHepsi" />
+  </wsdl:message>
+  <wsdl:message name="GetirHepsiSoapOut">
+    <wsdl:part name="parameters" element="tns:GetirHepsiResponse" />
+  </wsdl:message>
+  <wsdl:message name="LoginKontrolSoapIn">
+    <wsdl:part name="parameters" element="tns:LoginKontrol" />
+  </wsdl:message>
+  <wsdl:message name="LoginKontrolSoapOut">
+    <wsdl:part name="parameters" element="tns:LoginKontrolResponse" />
+  </wsdl:message>
+  <wsdl:message name="YetkiliMiSoapIn">
+    <wsdl:part name="parameters" element="tns:YetkiliMi" />
+  </wsdl:message>
+  <wsdl:message name="YetkiliMiSoapOut">
+    <wsdl:part name="parameters" element="tns:YetkiliMiResponse" />
+  </wsdl:message>
+  <wsdl:message name="sha256_hashSoapIn">
+    <wsdl:part name="parameters" element="tns:sha256_hash" />
+  </wsdl:message>
+  <wsdl:message name="sha256_hashSoapOut">
+    <wsdl:part name="parameters" element="tns:sha256_hashResponse" />
+  </wsdl:message>
+  <wsdl:message name="Ekle2SoapIn">
+    <wsdl:part name="parameters" element="tns:Ekle2" />
+  </wsdl:message>
+  <wsdl:message name="Ekle2SoapOut">
+    <wsdl:part name="parameters" element="tns:Ekle2Response" />
+  </wsdl:message>
+  <wsdl:portType name="Service1Soap">
+    <wsdl:operation name="HelloWorld">
+      <wsdl:input message="tns:HelloWorldSoapIn" />
+      <wsdl:output message="tns:HelloWorldSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Ekle">
+      <wsdl:input message="tns:EkleSoapIn" />
+      <wsdl:output message="tns:EkleSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetirById">
+      <wsdl:input message="tns:GetirByIdSoapIn" />
+      <wsdl:output message="tns:GetirByIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Guncelle">
+      <wsdl:input message="tns:GuncelleSoapIn" />
+      <wsdl:output message="tns:GuncelleSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Sil">
+      <wsdl:input message="tns:SilSoapIn" />
+      <wsdl:output message="tns:SilSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetirHepsi">
+      <wsdl:input message="tns:GetirHepsiSoapIn" />
+      <wsdl:output message="tns:GetirHepsiSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LoginKontrol">
+      <wsdl:input message="tns:LoginKontrolSoapIn" />
+      <wsdl:output message="tns:LoginKontrolSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="YetkiliMi">
+      <wsdl:input message="tns:YetkiliMiSoapIn" />
+      <wsdl:output message="tns:YetkiliMiSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="sha256_hash">
+      <wsdl:input message="tns:sha256_hashSoapIn" />
+      <wsdl:output message="tns:sha256_hashSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Ekle2">
+      <wsdl:input message="tns:Ekle2SoapIn" />
+      <wsdl:output message="tns:Ekle2SoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="Service1Soap" type="tns:Service1Soap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="HelloWorld">
+      <soap:operation soapAction="http://tempuri.org/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Ekle">
+      <soap:operation soapAction="http://tempuri.org/Ekle" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetirById">
+      <soap:operation soapAction="http://tempuri.org/GetirById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Guncelle">
+      <soap:operation soapAction="http://tempuri.org/Guncelle" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Sil">
+      <soap:operation soapAction="http://tempuri.org/Sil" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetirHepsi">
+      <soap:operation soapAction="http://tempuri.org/GetirHepsi" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoginKontrol">
+      <soap:operation soapAction="http://tempuri.org/LoginKontrol" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="YetkiliMi">
+      <soap:operation soapAction="http://tempuri.org/YetkiliMi" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="sha256_hash">
+      <soap:operation soapAction="http://tempuri.org/sha256_hash" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Ekle2">
+      <soap:operation soapAction="http://tempuri.org/Ekle2" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="Service1Soap12" type="tns:Service1Soap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="HelloWorld">
+      <soap12:operation soapAction="http://tempuri.org/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Ekle">
+      <soap12:operation soapAction="http://tempuri.org/Ekle" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetirById">
+      <soap12:operation soapAction="http://tempuri.org/GetirById" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Guncelle">
+      <soap12:operation soapAction="http://tempuri.org/Guncelle" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Sil">
+      <soap12:operation soapAction="http://tempuri.org/Sil" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetirHepsi">
+      <soap12:operation soapAction="http://tempuri.org/GetirHepsi" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoginKontrol">
+      <soap12:operation soapAction="http://tempuri.org/LoginKontrol" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="YetkiliMi">
+      <soap12:operation soapAction="http://tempuri.org/YetkiliMi" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="sha256_hash">
+      <soap12:operation soapAction="http://tempuri.org/sha256_hash" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Ekle2">
+      <soap12:operation soapAction="http://tempuri.org/Ekle2" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Service1">
+    <wsdl:port name="Service1Soap" binding="tns:Service1Soap">
+      <soap:address location="http://localhost:54573/Service1.asmx" />
+    </wsdl:port>
+    <wsdl:port name="Service1Soap12" binding="tns:Service1Soap12">
+      <soap12:address location="http://localhost:54573/Service1.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
