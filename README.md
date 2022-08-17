@@ -1,4 +1,4 @@
-Bu projedeki veri tabanı bağlantısını ve veri tabanı işlemlerini xml web servis kullanarak yaptım. Projeyi çalıştırmak için github sayfamda paylaştığım WebForm XML Servis
+Bu projedeki veri tabanı bağlantısını ve veri tabanı işlemlerini xml web servis kullanarak yaptım. Projeyi çalıştırmak için github sayfamda paylaştığım WebService
 projesini çalıştırmak gerekiyor.
 
 Proje çalıştırılınca ilk olarak kullanıcı giriş formu açılır. Bu formda girdiğimiz kullanıcı adı ve şifre bilgileri eşleşiyormu, giriş yapan kullanıcı yetkili kullanıcı 
